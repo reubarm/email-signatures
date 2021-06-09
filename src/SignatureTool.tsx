@@ -1,5 +1,6 @@
 import React from "react";
 import { Signature, PersonalData } from "./Signature";
+import Instructions from "./InstructionsModal";
 import "./Signature.css";
 import {
   Row,
@@ -144,7 +145,7 @@ function SignatureTool() {
   const EmailSignature = () => (
     <div>
       <Container>
-      <Text as="h4">Your email signature:</Text>
+        <Text as="h4">Your email signature:</Text>
         <Component signature={true}>
           <Row>
             <Column>{signature()}</Column>
@@ -156,7 +157,7 @@ function SignatureTool() {
           </PrimaryButton>
         </ButtonWrapper>
 
-        { /*  This is the personal data from the form and brand selector */}
+        {/*  This is the personal data from the form and brand selector */}
         <Container>{personalData()}</Container>
       </Container>
     </div>
@@ -166,9 +167,11 @@ function SignatureTool() {
     <EmailSignature />
   ) : (
     <Container>
-      <Text as="h3">Create your email signature</Text>  
-      <Text fontSize="large" fontWeight="bold">Select your company:</Text>
-        
+      <Text as="h3">Create your email signature</Text>
+      <Text fontSize="large" fontWeight="bold">
+        Select your company:
+      </Text>
+
       <CompanySelect>
         <Companies>
           <Brand onClick={equalsSelect} className={equalsImg}>
@@ -187,7 +190,7 @@ function SignatureTool() {
       </CompanySelect>
 
       <Text as="h4">Enter your details:</Text>
-        
+
       <Component signature={false}>
         <form noValidate autoComplete="off">
           <Row>
@@ -204,9 +207,9 @@ function SignatureTool() {
               />
 
               <br />
-                <br />
-                
-                <Input
+              <br />
+
+              <Input
                 isReadonly={false}
                 isError={false}
                 placeholder="Landline Number"
@@ -230,7 +233,7 @@ function SignatureTool() {
               />
               <br />
               <br />
-                <Input
+              <Input
                 isReadonly={false}
                 isError={false}
                 placeholder="Mobile Number"
