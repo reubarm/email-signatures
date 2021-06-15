@@ -1,7 +1,4 @@
-import React from "react";
-import { Signature, PersonalData } from "./Signature";
-import Instructions from "./InstructionsModal";
-import "./Signature.css";
+import React, { useState } from "react";
 import {
   Row,
   Column,
@@ -11,8 +8,13 @@ import {
   Companies,
   Brand,
   ButtonWrapper,
+  SpectrumLogo,
+  EqualsLogo
 } from "./Components";
+import "./Signature.css";
 import { Text, PrimaryButton, Input } from "@fairfx/geometry-web";
+import { Signature, PersonalData } from "./Signature";
+import Instructions from "./InstructionsModal";
 
 export interface SignatureData {
   name: string;
@@ -42,13 +44,12 @@ const initialState: State = {
 };
 
 function SignatureTool() {
-  const [state, setState] = React.useState<State>(initialState);
-  const [showEmailSignature, setShowEmailSignature] = React.useState(false);
+  const [state, setState] = useState<State>(initialState);
+  const [showEmailSignature, setShowEmailSignature] = useState(false);
   const showSignature = () => setShowEmailSignature(true);
-
-  const [spectrum, setSpectrum] = React.useState(false);
-  const [equals, setEquals] = React.useState(false);
-
+  const [spectrumImg, setSpectrumImg] = useState("");
+  const [equalsImg, setEqualsImg] = useState("");
+  
   const changeState = () => {
     return JSON.stringify(state) === JSON.stringify(initialState);
   };
@@ -64,30 +65,22 @@ function SignatureTool() {
     }));
   };
 
-  const [equalsImg, setEqualsImg] = React.useState("");
   const equalsSelect = () => {
-    setEqualsImg(equalsImg === "" ? "active" : "");
-    setSpectrumImg(equalsImg === "" ? "" : "");
-  };
-
-  const [spectrumImg, setSpectrumImg] = React.useState("");
-  const spectrumSelect = () => {
-    setSpectrumImg(spectrumImg === "" ? "active" : "");
-    setEqualsImg(equalsImg === "" ? "" : "");
-  };
-
-  const equalsLogo = () => {
     setState((prevState) => ({
       ...prevState,
       equals: true,
     }));
+    setEqualsImg(equalsImg === "" ? "active" : "");
+    setSpectrumImg(equalsImg === "" ? "" : "");
   };
 
-  const spectrumLogo = () => {
+  const spectrumSelect = () => {
     setState((prevState) => ({
       ...prevState,
       spectrum: true,
     }));
+    setSpectrumImg(spectrumImg === "" ? "active" : "");
+    setEqualsImg(equalsImg === "" ? "" : "");
   };
 
   const copySignature = () => {
@@ -157,6 +150,8 @@ function SignatureTool() {
           </PrimaryButton>
         </ButtonWrapper>
 
+        <Instructions />
+        
         {/*  This is the personal data from the form and brand selector */}
         <Container>{personalData()}</Container>
       </Container>
@@ -176,14 +171,12 @@ function SignatureTool() {
         <Companies>
           <Brand onClick={equalsSelect} className={equalsImg}>
             <img
-              src="https://cdn.fairfx.com/images/group-email-signature/equals-light.png"
-              onClick={equalsLogo}
+                src={EqualsLogo}
             />
           </Brand>
           <Brand onClick={spectrumSelect} className={spectrumImg}>
             <img
-              src="https://cdn.fairfx.com/images/email-signatures/spec-logo.png"
-              onClick={spectrumLogo}
+              src={SpectrumLogo}
             />
           </Brand>
         </Companies>
