@@ -13,10 +13,10 @@ export const OutlookWeb =
   "https://download.logo.wine/logo/Microsoft_Outlook/Microsoft_Outlook-Logo.wine.png";
 
 export const OutlookDesktop =
-  "https://download.logo.wine/logo/Microsoft_Outlook/Microsoft_Outlook-Logo.wine.png";
+  "https://www.freepnglogos.com/uploads/logo-outlook/transparent-outlook-icon-2.png";
 
 export const AppleMail =
-  "https://download.logo.wine/logo/Microsoft_Outlook/Microsoft_Outlook-Logo.wine.png";
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mail_%28iOS%29.svg/1200px-Mail_%28iOS%29.svg.png";
 
 export const Background = styled.div`
   background-color: #343a40 !important;
@@ -204,7 +204,7 @@ export const modalPopup = {
 
 export const ButtonWrapper = styled.div`
   display: block;
-  margin: 2rem auto;
+  margin: 2rem auto 7rem;
   text-align: center;
 
   button {

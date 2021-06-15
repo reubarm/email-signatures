@@ -49,7 +49,7 @@ function SignatureTool() {
   const showSignature = () => setShowEmailSignature(true);
   const [spectrumImg, setSpectrumImg] = useState("");
   const [equalsImg, setEqualsImg] = useState("");
-  
+
   const changeState = () => {
     return JSON.stringify(state) === JSON.stringify(initialState);
   };
@@ -153,7 +153,7 @@ function SignatureTool() {
         <Instructions />
         
         {/*  This is the personal data from the form and brand selector */}
-        <Container>{personalData()}</Container>
+        {/* <Container>{personalData()}</Container> */}
       </Container>
     </div>
   );
