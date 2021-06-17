@@ -10,7 +10,7 @@ import {
   modalPopup,
   AppleMail,
   OutlookDesktop,
-  OutlookWeb
+  OutlookWeb,
 } from "./Components";
 import "./Signature.css";
 import { Text } from "@fairfx/geometry-web";

@@ -9,11 +9,11 @@ import {
   Brand,
   ButtonWrapper,
   SpectrumLogo,
-  EqualsLogo
+  EqualsLogo,
 } from "./Components";
 import "./Signature.css";
 import { Text, PrimaryButton, Input } from "@fairfx/geometry-web";
-import { Signature, PersonalData } from "./Signature";
+import { Signature } from "./Signature";
 import Instructions from "./InstructionsModal";
 
 export interface SignatureData {
@@ -21,7 +21,7 @@ export interface SignatureData {
   jobrole: string;
   landline: string;
   mobile: string;
-  logo: string;
+  linkedin: string;
   equals: boolean;
   spectrum: boolean;
 }
@@ -37,7 +37,7 @@ const initialState: State = {
   jobrole: "",
   landline: "",
   mobile: "",
-  logo: "",
+  linkedin: "",
   equals: false,
   spectrum: false,
   copied: false,
@@ -49,14 +49,6 @@ function SignatureTool() {
   const showSignature = () => setShowEmailSignature(true);
   const [spectrumImg, setSpectrumImg] = useState("");
   const [equalsImg, setEqualsImg] = useState("");
-
-  const changeState = () => {
-    return JSON.stringify(state) === JSON.stringify(initialState);
-  };
-
-  const clearState = () => {
-    setState(initialState);
-  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState((prevState) => ({
@@ -103,7 +95,7 @@ function SignatureTool() {
     } catch (err) {}
   };
 
-  const signature = () => {
+  const signatureData = () => {
     return (
       <>
         <Signature
@@ -111,23 +103,7 @@ function SignatureTool() {
           jobrole={state.jobrole}
           landline={state.landline}
           mobile={state.mobile}
-          logo={state.logo}
-          spectrum={state.spectrum}
-          equals={state.equals}
-        />
-      </>
-    );
-  };
-
-  const personalData = () => {
-    return (
-      <>
-        <PersonalData
-          name={state.name}
-          jobrole={state.jobrole}
-          landline={state.landline}
-          mobile={state.mobile}
-          logo={state.logo}
+          linkedin={state.linkedin}
           spectrum={state.spectrum}
           equals={state.equals}
         />
@@ -141,7 +117,7 @@ function SignatureTool() {
         <Text as="h4">Your email signature:</Text>
         <Component signature={true}>
           <Row>
-            <Column>{signature()}</Column>
+            <Column>{signatureData()}</Column>
           </Row>
         </Component>
         <ButtonWrapper>
@@ -149,11 +125,7 @@ function SignatureTool() {
             {state.copied ? "Copied" : "Copy Signature"}
           </PrimaryButton>
         </ButtonWrapper>
-
         <Instructions />
-        
-        {/*  This is the personal data from the form and brand selector */}
-        {/* <Container>{personalData()}</Container> */}
       </Container>
     </div>
   );
@@ -170,14 +142,10 @@ function SignatureTool() {
       <CompanySelect>
         <Companies>
           <Brand onClick={equalsSelect} className={equalsImg}>
-            <img
-                src={EqualsLogo}
-            />
+            <img src={EqualsLogo} />
           </Brand>
           <Brand onClick={spectrumSelect} className={spectrumImg}>
-            <img
-              src={SpectrumLogo}
-            />
+            <img src={SpectrumLogo} />
           </Brand>
         </Companies>
       </CompanySelect>
@@ -232,6 +200,18 @@ function SignatureTool() {
                 placeholder="Mobile Number"
                 value={state.mobile}
                 name={"mobile"}
+                onChange={handleChange}
+                autoFocus={false}
+                color="secondary"
+              />
+              <br />
+              <br />
+              <Input
+                isReadonly={false}
+                isError={false}
+                placeholder="LinkedIn URL"
+                value={state.linkedin}
+                name={"linkedin"}
                 onChange={handleChange}
                 autoFocus={false}
                 color="secondary"
