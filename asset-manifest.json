@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/email-signatures/static/css/main.49512ecf.chunk.css",
-    "main.js": "/email-signatures/static/js/main.13877e95.chunk.js",
-    "main.js.map": "/email-signatures/static/js/main.13877e95.chunk.js.map",
+    "main.js": "/email-signatures/static/js/main.1d6c4974.chunk.js",
+    "main.js.map": "/email-signatures/static/js/main.1d6c4974.chunk.js.map",
     "runtime-main.js": "/email-signatures/static/js/runtime-main.62fe8794.js",
     "runtime-main.js.map": "/email-signatures/static/js/runtime-main.62fe8794.js.map",
     "static/js/2.d9660c1e.chunk.js": "/email-signatures/static/js/2.d9660c1e.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.62fe8794.js",
     "static/js/2.d9660c1e.chunk.js",
     "static/css/main.49512ecf.chunk.css",
-    "static/js/main.13877e95.chunk.js"
+    "static/js/main.1d6c4974.chunk.js"
   ]
 }
