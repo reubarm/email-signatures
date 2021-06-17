@@ -198,7 +198,7 @@ export const modalPopup = {
     padding: "3rem 5rem",
   },
   overlay: {
-    background: "rgb(50, 58, 64, 0.9)",
+    background: "rgb(50, 58, 64)",
   },
 };
 
