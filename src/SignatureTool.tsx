@@ -4,6 +4,7 @@ import {
   Column,
   Container,
   Component,
+  InputField,
   CompanySelect,
   Companies,
   Brand,
@@ -156,66 +157,66 @@ function SignatureTool() {
         <form noValidate autoComplete="off">
           <Row>
             <Column>
-              <Input
-                placeholder="Full Name"
-                isReadonly={false}
-                isError={false}
-                value={state.name}
-                name={"name"}
-                onChange={handleChange}
-                autoFocus={false}
-                color="secondary"
-              />
-
-              <br />
-              <br />
-
-              <Input
-                isReadonly={false}
-                isError={false}
-                placeholder="Landline Number"
-                value={state.landline}
-                name={"landline"}
-                onChange={handleChange}
-                autoFocus={false}
-                color="secondary"
-              />
-            </Column>
-            <Column>
-              <Input
-                isReadonly={false}
-                isError={false}
-                placeholder="Job Role"
-                value={state.jobrole}
-                name={"jobrole"}
-                onChange={handleChange}
-                autoFocus={false}
-                color="secondary"
-              />
-              <br />
-              <br />
-              <Input
-                isReadonly={false}
-                isError={false}
-                placeholder="Mobile Number"
-                value={state.mobile}
-                name={"mobile"}
-                onChange={handleChange}
-                autoFocus={false}
-                color="secondary"
-              />
-              <br />
-              <br />
-              <Input
-                isReadonly={false}
-                isError={false}
-                placeholder="LinkedIn URL"
-                value={state.linkedin}
-                name={"linkedin"}
-                onChange={handleChange}
-                autoFocus={false}
-                color="secondary"
-              />
+              <InputField>
+                <Input
+                  placeholder="Full Name"
+                  isReadonly={false}
+                  isError={false}
+                  value={state.name}
+                  name={"name"}
+                  onChange={handleChange}
+                  autoFocus={false}
+                  color="secondary"
+                />
+              </InputField>
+              <InputField>
+                <Input
+                  isReadonly={false}
+                  isError={false}
+                  placeholder="Job Role"
+                  value={state.jobrole}
+                  name={"jobrole"}
+                  onChange={handleChange}
+                  autoFocus={false}
+                  color="secondary"
+                />
+              </InputField>
+              <InputField>
+                <Input
+                  isReadonly={false}
+                  isError={false}
+                  placeholder="Landline Number"
+                  value={state.landline}
+                  name={"landline"}
+                  onChange={handleChange}
+                  autoFocus={false}
+                  color="secondary"
+                />
+              </InputField>
+              <InputField>
+                <Input
+                  isReadonly={false}
+                  isError={false}
+                  placeholder="Mobile Number"
+                  value={state.mobile}
+                  name={"mobile"}
+                  onChange={handleChange}
+                  autoFocus={false}
+                  color="secondary"
+                />
+              </InputField>
+              <InputField>
+                <Input
+                  isReadonly={false}
+                  isError={false}
+                  placeholder="LinkedIn URL"
+                  value={state.linkedin}
+                  name={"linkedin"}
+                  onChange={handleChange}
+                  autoFocus={false}
+                  color="secondary"
+                />
+              </InputField>
             </Column>
           </Row>
         </form>

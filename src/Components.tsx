@@ -75,7 +75,7 @@ export const Component = styled.div<{ signature: boolean }>`
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  padding: 3rem 5rem;
+  padding: 2rem 3rem 2.5rem;
   width: ${(signature) => (signature ? "800px" : "inherit")};
 `;
 
@@ -88,11 +88,15 @@ export const Row = styled.div`
 
 export const Column = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-basis: 100%;
   flex: 1;
-  margin: 0 1rem;
-  width: 400px;
+  flex-wrap: wrap;
+`;
+
+export const InputField = styled.div`
+  margin: 1rem;
+  width: 45%;
 `;
 
 export const SignatureBox = styled.div`
