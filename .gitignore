@@ -1,3 +1,4 @@
-# Remove dependencies and MacOS DS Store
+# Remove dependencies and VSCode settings + MacOS DS store
 /node_modules
+.vscode
 .DS_Store
