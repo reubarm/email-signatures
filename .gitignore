@@ -1,2 +1,3 @@
-# dependencies
+# Remove dependencies and MacOS DS Store
 /node_modules
+.DS_Store
