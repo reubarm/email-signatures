@@ -25,7 +25,8 @@ const Navigation = () => {
   const peoplesHub = window.location.href.includes("people.equals.io");
   const signatureTool =
     window.location.href.includes("signatures.fairfx.io") ||
-    window.location.href.includes("7777");
+    window.location.href.includes("localhost") ||
+    window.location.href.includes("github");
 
   const [outlookWeb, openOutlookWeb] = useState(false);
   const [outlookDesktop, openOutlookDesktop] = useState(false);
