@@ -10,13 +10,13 @@ export const EqualsLogoDark =
   "https://cdn.fairfx.com/images/group-email-signature/equals-dark.png";
 
 export const OutlookWeb =
-  "https://download.logo.wine/logo/Microsoft_Outlook/Microsoft_Outlook-Logo.wine.png";
+  "https://cdn.fairfx.com/images/email-signatures/mso-web.png";
 
 export const OutlookDesktop =
-  "https://www.freepnglogos.com/uploads/logo-outlook/transparent-outlook-icon-2.png";
+  "https://cdn.fairfx.com/images/email-signatures/mso-desktop.png";
 
 export const AppleMail =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Mail_%28iOS%29.svg/1200px-Mail_%28iOS%29.svg.png";
+  "https://cdn.fairfx.com/images/email-signatures/apple-mail.png";
 
 export const Background = styled.div`
   background-color: #343a40 !important;
@@ -26,16 +26,20 @@ export const Background = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  align-items: center;
+  
   align-self: center;
   justify-content: space-between;
   height: 70px;
   max-width: 1140px;
-  margin: 0 auto;
+  margin: 0 0;
 `;
 
 export const Logo = styled.img`
   height: 35px;
+
+  @media only screen and (max-width: 800px) {
+    margin: 0 0;
+  }
 `;
 
 export const SlackInfo = styled.a`
@@ -51,32 +55,41 @@ export const SlackInfo = styled.a`
   :hover {
     color: white!important;
   }
+
+  @media only screen and (max-width: 800px) {
+    display: none;
+   }
 `;
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  margin-top: 3rem;
+  margin: 3rem 0 0 20rem;
 `;
 
 export const CompanySelect = styled.div`
   border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+  
+  
+  margin: 0 0;
   padding: 0;
 `;
 
 export const Component = styled.div<{ signature: boolean }>`
   background: #f7f8fc;
   border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+  
+  
+  margin: 1rem 0;
   padding: 2rem 3rem 2.5rem;
   width: ${(signature) => (signature ? "800px" : "inherit")};
+
+  @media only screen and (max-width: 800px) {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background: white;
+  }
 `;
 
 export const Row = styled.div`
@@ -92,21 +105,36 @@ export const Column = styled.div`
   flex-basis: 100%;
   flex: 1;
   flex-wrap: wrap;
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 export const InputField = styled.div`
   margin: 1rem;
   width: 45%;
+
+  @media only screen and (max-width: 800px) {
+    margin: 1rem 0;
+    width: 80%;
+  }
 `;
 
 export const SignatureBox = styled.div`
-  align-items: center;
-  justify-content: center;
+  
+  
   background: white;
   border: 2px solid #e1e1ea;
   padding: 3rem 5rem;
   margin: 1rem 2rem;
   border-radius: 10px;
+
+  @media only screen and (max-width: 800px) {
+    padding: 0;
+    margin: 3rem 0;
+    border: 0;
+  }
 `;
 
 export const Title = styled.h2`
@@ -119,15 +147,20 @@ export const Title = styled.h2`
 
 export const Companies = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  
+  
   margin: 2rem 0 3rem;
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    margin: 0;
+  }
 `;
 
 export const Brand = styled.div`
   width: 120px;
-  justify-content: center;
-  align-items: center;
+  
+  
   border: 0;
   cursor: pointer;
   background: white;
@@ -138,7 +171,7 @@ export const Brand = styled.div`
 
   img {
     max-width: 140px;
-    align-items: center;
+    
     margin: 0 -0.5rem;
   }
 
@@ -146,9 +179,14 @@ export const Brand = styled.div`
     background-color: #f7f8fc;
     border: solid 1px #bcbcc9;
   }
+
   &.active {
     background-color: #f7f8fc;
     border: solid 1px #bcbcc9;
+  }
+
+  @media only screen and (max-width: 800px) {
+    margin: 1rem 0;
   }
 `;
 
@@ -158,8 +196,8 @@ export const ClientLogo = styled.img`
 
 export const EmailClient = styled.div`
   width: 120px;
-  justify-content: center;
-  align-items: center;
+  
+  
   border: 0;
   cursor: pointer;
   background: white;
@@ -170,13 +208,19 @@ export const EmailClient = styled.div`
   text-align: center;
 
   img {
-    margin: 0 auto 1rem;
+    margin: 0 0 1rem;
     display: block;
   }
 
   &:hover {
     background-color: #f7f8fc;
     border: solid 1px #bcbcc9;
+  }
+`;
+
+export const InstructionsModal = styled.div`
+  @media only screen and (max-width: 800px) {
+    display: none;
   }
 `;
 
@@ -208,10 +252,15 @@ export const modalPopup = {
 
 export const ButtonWrapper = styled.div`
   display: block;
-  margin: 2rem auto 7rem;
+  margin: 2rem 0 7rem;
   text-align: center;
+  text-align: left;
 
   button {
     width: 300px;
   }
+`;
+
+export const Spacer = styled.hr`
+  margin: 5rem;
 `;
