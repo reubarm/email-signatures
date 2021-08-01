@@ -65,12 +65,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 3rem 0 0 20rem;
+
+  @media only screen and (max-width: 800px) {
+    margin: 1rem;
+  }
 `;
 
 export const CompanySelect = styled.div`
   border-radius: 10px;
-  
-  
   margin: 0 0;
   padding: 0;
 `;
@@ -117,7 +119,7 @@ export const InputField = styled.div`
 
   @media only screen and (max-width: 800px) {
     margin: 1rem 0;
-    width: 80%;
+    width: 100%;
   }
 `;
 
@@ -262,5 +264,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const Spacer = styled.hr`
-  margin: 5rem;
+  margin: 5rem auto 5rem 1rem;
+  width: 50%;
+  border: none;
 `;

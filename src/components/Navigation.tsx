@@ -22,16 +22,20 @@ import { Text } from "@fairfx/geometry-web";
 import instructions from "./Instructions.json";
 
 const Navigation = () => {
-  const peoplesHub = window.location.href.includes("people.equals.io");
-  const signatureTool =
-    window.location.href.includes("signatures.fairfx.io") ||
-    window.location.href.includes("localhost") ||
-    window.location.href.includes("github");
-
+  const [equals, setEquals] = useState(true);
+  const [spectrum, setSpectrum] = useState(false);
   const [outlookWeb, openOutlookWeb] = useState(false);
   const [outlookDesktop, openOutlookDesktop] = useState(false);
   const [appleMail, openAppleMail] = useState(false);
 
+  function equalsSelect() {
+    setEquals(true);
+    setSpectrum(false);
+  }
+  function spectrumSelect() {
+    setSpectrum(!spectrum);
+    setEquals(false);
+  }
   function showOutlook() {
     openOutlookWeb(!outlookWeb);
   }
@@ -40,6 +44,26 @@ const Navigation = () => {
   }
   function showAppleMail() {
     openAppleMail(!appleMail);
+  }
+
+  const peoplesHub = window.location.href.includes("people.equals.io");
+  const signatureTool =
+    window.location.href.includes("signatures.fairfx.io") ||
+    window.location.href.includes("localhost") ||
+    window.location.href.includes("github");
+  const isMobile = window.innerWidth < 800;
+  
+    // /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  // function minimiseMenu() {
+  //   if (isMobile) {
+  //     return true;
+  //   }
+  // }
+
+
+  if (isMobile) {
+    return <></>;
   }
 
   if (peoplesHub) {
@@ -58,36 +82,39 @@ const Navigation = () => {
   if (signatureTool) {
     return (
       <>
-        <SideBarNavigation>
+        <SideBarNavigation
+          onLogoClick={() => window.location.reload()}
+          onCollapsing={false || null}
+          secondaryNavigation={[
+            <NavigationItem
+              onClick={showOutlookDesktop}
+              icon={OutlookDesktop}
+              title="Outlook Desktop"
+            />,
+            <NavigationItem
+              onClick={showAppleMail}
+              icon={AppleMail}
+              title="Apple Mail"
+            />,
+            <NavigationItem
+              onClick={showOutlook}
+              icon={OutlookWeb}
+              title="Outlook Web"
+            />,
+          ]}
+        >
           <Spacer />
           <NavigationItem
-            // onClick={equalsSelect}
-            select={true}
+            onClick={equalsSelect}
+            select={equals}
             icon={Equals}
             title="Equals Group"
           />
           <NavigationItem
-            // onClick={spectrumSelect}
-            // select={spectrumImg}
+            onClick={spectrumSelect}
+            select={spectrum}
             icon={Spectrum}
             title="Spectrum"
-          />
-          <Spacer />
-
-          <NavigationItem
-            onClick={showOutlook}
-            icon={OutlookWeb}
-            title="Outlook Web"
-          />
-          <NavigationItem
-            onClick={showOutlookDesktop}
-            icon={OutlookDesktop}
-            title="Outlook Desktop"
-          />
-          <NavigationItem
-            onClick={showAppleMail}
-            icon={AppleMail}
-            title="Apple Mail"
           />
         </SideBarNavigation>
 
