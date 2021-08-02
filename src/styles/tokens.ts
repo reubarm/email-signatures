@@ -21,6 +21,7 @@ export const spaces = {
   '56': '14rem',
   '64': '16rem',
   '80': '20rem',
+  '800': '800px',
 };
 
 export const sizes = {
@@ -45,6 +46,7 @@ export const sizes = {
   '4xl': '56rem',
   '5xl': '64rem',
   '6xl': '72rem',
+  '7xl': '80rem',
 };
 
 export const zIndices = {

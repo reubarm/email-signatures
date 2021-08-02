@@ -1,0 +1,82 @@
+# Javascript Node CircleCI 2.1 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+
+# CircleCI environments to run stuff in (can take parameters).
+executors:
+  default:
+    parameters:
+      tag:
+        type: string
+        default: "8.12.0"
+    docker:
+      - image: circleci/node:<< parameters.tag >>
+
+# CircleCI commands to that can be run.
+commands:
+  install_aws_cli:
+    description: "Install the latest verson of the AWS CLI"
+    steps:
+        - run:
+            name: "Install AWS CLI"
+            command: |
+              sudo apt-get update
+              sudo apt-get install -y python-dev python-pip
+              sudo pip install --upgrade awscli
+
+  config_aws:
+    description: "Create a new AWS profile that can use an assumed role"
+    parameters:
+      aws_account_id:
+        type: string
+      role:
+        type: string
+        description: Name of the AWS role to assume. This is normally the full repository name.
+        default: "FairFXGroup@email-signatures"
+    steps:
+      - run:
+          name: "Configure AWS CLI"
+          command: |
+            mkdir ~/.aws && printf "[default]\naws_access_key_id = ${AWS_ACCESS_KEY_ID}\naws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}\n[assumed-role]\nrole_arn = arn:aws:iam::<< parameters.aws_account_id >>:role/<< parameters.role >>\nsource_profile = default\nregion = eu-west-2" > ~/.aws/credentials
+jobs:
+  deploy:
+    executor: default
+    working_directory: ~/repo
+    parameters:
+      bucket_name:
+        type: string
+        description: Name of the S3 bucket to deploy the files to.
+        enum: ["email-signatures.fairfx.io"]
+      distribution_id:
+        type: enum
+        description: ID of the CloudFront distribution to invalidate.
+        enum: ["E32380QJS7AKET"]
+      aws_account_id:
+        type: string
+        default: ""
+    steps:
+      - checkout
+      - install_aws_cli
+      - config_aws:
+          aws_account_id: << parameters.aws_account_id >>
+      - run:
+           name: Deploy to S3.
+           command: |
+            aws configure set preview.cloudfront true
+            aws s3 sync ~/repo s3://<< parameters.bucket_name >> --delete --region eu-west-2 --exclude '.git*' --exclude '.circleci*' --profile assumed-role
+            aws cloudfront create-invalidation --distribution-id=<< parameters.distribution_id >> --paths '/*' --profile assumed-role
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - deploy:
+          aws_account_id: ${AWS_ACCOUNT_ID_SHARED_RESOURCES}
+          bucket_name: email-signatures.fairfx.io
+          distribution_id: E32380QJS7AKET
+          filters:
+            branches:
+              only:
+                - master

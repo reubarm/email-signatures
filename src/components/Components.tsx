@@ -50,7 +50,7 @@ export const Wrapper = styled.div`
 export const Logo = styled.img`
   height: 35px;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${spaces[800]}) {
     margin: 0 0;
   }
 `;
@@ -69,7 +69,7 @@ export const SlackInfo = styled.a`
     color: ${colorTokens.white.base.value}!important;
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${spaces[800]}) {
     display: none;
    }
 `;
@@ -79,8 +79,8 @@ export const Container = styled.div`
   flex-direction: column;
   margin: ${spaces[12]} 0 0 ${spaces[80]};
 
-  @media only screen and (max-width: 800px) {
-    margin: ${spaces[4]};
+  @media only screen and (max-width: ${spaces[800]}) {
+    margin: 0;
   }
 `;
 
@@ -98,7 +98,7 @@ export const Component = styled.div<{ signature: boolean }>`
   padding: ${spaces[8]} ${spaces[12]} ${spaces[10]};
   width: ${(signature) => (signature ? "800px" : "inherit")};
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${spaces[800]}) {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -112,6 +112,10 @@ export const Row = styled.div`
   flex-wrap: wrap;
   width: 100%;
   background: ${colorTokens.athens_gray.base.value};
+
+  @media only screen and (max-width: ${spaces[800]}) {
+    background: ${colorTokens.white.base.value};
+  }
 `;
 
 export const Column = styled.div`
@@ -121,7 +125,7 @@ export const Column = styled.div`
   flex: 1;
   flex-wrap: wrap;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${spaces[800]}) {
     flex-direction: column;
   }
 `;
@@ -130,7 +134,7 @@ export const InputField = styled.div`
   margin: ${spaces[4]};
   width: 45%;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${spaces[800]}) {
     margin: ${spaces[4]} 0;
     width: 100%;
   }
@@ -143,7 +147,7 @@ export const SignatureBox = styled.div`
   margin: ${spaces[4]} ${spaces[8]};
   border-radius: 10px;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${spaces[800]}) {
     padding: 0;
     margin: ${spaces[12]} 0;
     border: 0;
@@ -162,7 +166,7 @@ export const Companies = styled.div`
   display: flex;
   margin: ${spaces[8]} 0 ${spaces[12]};
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${spaces[800]}) {
     flex-direction: column;
     margin: 0;
   }
@@ -180,7 +184,7 @@ export const Brand = styled.div`
 
   img {
     max-width: 140px;
-    margin: 0 -0.5rem;
+    margin: 0 -${spaces[2]};
   }
 
   &:hover {
@@ -193,8 +197,8 @@ export const Brand = styled.div`
     border: solid 1px #bcbcc9;
   }
 
-  @media only screen and (max-width: 800px) {
-    margin: 1rem 0;
+  @media only screen and (max-width: ${spaces[800]}) {
+    margin: ${spaces[4]} 0;
   }
 `;
 
@@ -225,7 +229,7 @@ export const EmailClient = styled.div`
 `;
 
 export const InstructionsModal = styled.div`
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${spaces[800]}) {
     display: none;
   }
 `;
