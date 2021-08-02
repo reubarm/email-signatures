@@ -46,23 +46,18 @@ const Navigation = () => {
     openAppleMail(!appleMail);
   }
 
-  const peoplesHub = window.location.href.includes("people.equals.io");
+  const peoplesHub =
+    window.location.href.includes("people.equals.io") || 
+    window.location.href.includes("3000");
   const signatureTool =
     window.location.href.includes("signatures.fairfx.io") ||
-    window.location.href.includes("localhost") ||
+    window.location.href.includes("7777") ||
     window.location.href.includes("github");
-  const isMobile = window.innerWidth < 800;
-  
-    // /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isMobile =
+    window.innerWidth < 800 ||
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-  // function minimiseMenu() {
-  //   if (isMobile) {
-  //     return true;
-  //   }
-  // }
-
-
-  if (isMobile) {
+  if (isMobile || peoplesHub) {
     return <></>;
   }
 

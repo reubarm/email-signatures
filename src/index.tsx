@@ -7,12 +7,8 @@ import { equalsTheme, ThemeProvider } from "@fairfx/geometry-web";
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={equalsTheme}>
-      {/* <Company brand={brand}> */}
-      
         <Navigation />
         <SignatureTool />
-        
-      {/* </Company> */}
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")

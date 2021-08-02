@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { color as colorTokens, sizes, spaces } from '../styles/tokens';
 
 export const EqualsLogo =
   "https://cdn.equals.co/images/group-email-signature/optimised/equals-light.png";
@@ -18,15 +19,27 @@ export const OutlookDesktop =
 export const AppleMail =
   "https://cdn.fairfx.com/images/email-signatures/apple-mail.png";
 
+export const modalPopup = {
+  content: {
+    top: sizes[32],
+    left: sizes[24],
+    right: sizes[24],
+    bottom: sizes[32],
+    padding: "0" + sizes[20],
+  },
+  overlay: {
+    background: colorTokens.charcoal.light.value,
+  },
+};
+
 export const Background = styled.div`
-  background-color: #343a40 !important;
+  background-color: ${colorTokens.charcoal.base.value}!important;
   position: relative;
   z-index: 1;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  
   align-self: center;
   justify-content: space-between;
   height: 70px;
@@ -45,15 +58,15 @@ export const Logo = styled.img`
 export const SlackInfo = styled.a`
   cursor: pointer;
   position: relative;
-  color: white!important;
-  padding: 0 0.75rem;
+  color: ${colorTokens.white.base.value}!important;
+  padding: 0 ${spaces[3]};
   transition: all 0.3s;
   text-decoration: none;
   margin-left; auto;
   float: right;
 
   :hover {
-    color: white!important;
+    color: ${colorTokens.white.base.value}!important;
   }
 
   @media only screen and (max-width: 800px) {
@@ -64,10 +77,10 @@ export const SlackInfo = styled.a`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 3rem 0 0 20rem;
+  margin: ${spaces[12]} 0 0 ${spaces[80]};
 
   @media only screen and (max-width: 800px) {
-    margin: 1rem;
+    margin: ${spaces[4]};
   }
 `;
 
@@ -78,19 +91,18 @@ export const CompanySelect = styled.div`
 `;
 
 export const Component = styled.div<{ signature: boolean }>`
-  background: #f7f8fc;
+  background: ${colorTokens.athens_gray.base.value};
   border-radius: 10px;
   
-  
-  margin: 1rem 0;
-  padding: 2rem 3rem 2.5rem;
+  margin: ${spaces[4]} 0;
+  padding: ${spaces[8]} ${spaces[12]} ${spaces[10]};
   width: ${(signature) => (signature ? "800px" : "inherit")};
 
   @media only screen and (max-width: 800px) {
     padding: 0;
     margin: 0;
     width: 100%;
-    background: white;
+    background: ${colorTokens.white.base.value};
   }
 `;
 
@@ -99,6 +111,7 @@ export const Row = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  background: ${colorTokens.athens_gray.base.value};
 `;
 
 export const Column = styled.div`
@@ -114,44 +127,40 @@ export const Column = styled.div`
 `;
 
 export const InputField = styled.div`
-  margin: 1rem;
+  margin: ${spaces[4]};
   width: 45%;
 
   @media only screen and (max-width: 800px) {
-    margin: 1rem 0;
+    margin: ${spaces[4]} 0;
     width: 100%;
   }
 `;
 
 export const SignatureBox = styled.div`
-  
-  
-  background: white;
+  background: ${colorTokens.white.base.value};
   border: 2px solid #e1e1ea;
-  padding: 3rem 5rem;
-  margin: 1rem 2rem;
+  padding: ${spaces[12]} ${spaces[20]};
+  margin: ${spaces[4]} ${spaces[8]};
   border-radius: 10px;
 
   @media only screen and (max-width: 800px) {
     padding: 0;
-    margin: 3rem 0;
+    margin: ${spaces[12]} 0;
     border: 0;
   }
 `;
 
 export const Title = styled.h2`
   text-align: center;
-  color: #333;
-  margin: 3rem 0;
+  color: ${colorTokens.charcoal.base.value};
+  margin: ${spaces[12]} 0;
   font-weight: 400;
   letter-spacing: -1;
 `;
 
 export const Companies = styled.div`
   display: flex;
-  
-  
-  margin: 2rem 0 3rem;
+  margin: ${spaces[8]} 0 ${spaces[12]};
 
   @media only screen and (max-width: 800px) {
     flex-direction: column;
@@ -161,29 +170,26 @@ export const Companies = styled.div`
 
 export const Brand = styled.div`
   width: 120px;
-  
-  
   border: 0;
   cursor: pointer;
-  background: white;
-  margin: 0 1rem;
-  padding: 2rem 5rem;
+  background: ${colorTokens.white.base.value};
+  margin: 0 ${spaces[4]};
+  padding: ${spaces[8]} ${spaces[20]};
   border-radius: 5px;
   border: solid 1px #d4d5dd;
 
   img {
     max-width: 140px;
-    
     margin: 0 -0.5rem;
   }
 
   &:hover {
-    background-color: #f7f8fc;
+    background-color: ${colorTokens.athens_gray.base.value};
     border: solid 1px #bcbcc9;
   }
 
   &.active {
-    background-color: #f7f8fc;
+    background-color: ${colorTokens.athens_gray.base.value};
     border: solid 1px #bcbcc9;
   }
 
@@ -197,25 +203,23 @@ export const ClientLogo = styled.img`
 `;
 
 export const EmailClient = styled.div`
-  width: 120px;
-  
-  
+  width: 120px;  
   border: 0;
   cursor: pointer;
-  background: white;
+  background: ${colorTokens.white.base.value};
   margin: 0 1rem;
-  padding: 2rem 5rem;
+  padding: ${spaces[8]} ${spaces[20]};
   border-radius: 5px;
   border: solid 1px #d4d5dd;
   text-align: center;
 
   img {
-    margin: 0 0 1rem;
+    margin: 0 0 ${spaces[4]};
     display: block;
   }
 
   &:hover {
-    background-color: #f7f8fc;
+    background-color: ${colorTokens.athens_gray.base.value};
     border: solid 1px #bcbcc9;
   }
 `;
@@ -231,7 +235,7 @@ export const CloseModal = styled.button`
   top: 20px;
   right: 20px;
   z-index: 9999;
-  color: #555;
+  color: ${colorTokens.charcoal.light.value};
   font-size: 24px;
   font-weight: normal;
   transition: 0.3s;
@@ -239,22 +243,9 @@ export const CloseModal = styled.button`
   border: none;
 `;
 
-export const modalPopup = {
-  content: {
-    top: "15%",
-    left: "15%",
-    right: "15%",
-    bottom: "15%",
-    padding: "3rem 5rem",
-  },
-  overlay: {
-    background: "rgb(50, 58, 64)",
-  },
-};
-
 export const ButtonWrapper = styled.div`
   display: block;
-  margin: 2rem 0 7rem;
+  margin: ${spaces[4]} 0 ${spaces[32]};
   text-align: center;
   text-align: left;
 
@@ -264,7 +255,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const Spacer = styled.hr`
-  margin: 5rem auto 5rem 1rem;
+  margin: ${spaces[20]} auto ${spaces[20]} ${spaces[4]};
   width: 50%;
   border: none;
 `;

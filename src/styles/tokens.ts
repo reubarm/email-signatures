@@ -20,12 +20,19 @@ export const spaces = {
   '48': '12rem',
   '56': '14rem',
   '64': '16rem',
+  '80': '20rem',
 };
 
 export const sizes = {
   ...spaces,
   full: '100%',
   half: '50%',
+  third: '33.33333%',
+  quarter: '25%',
+  fifth: '20%',
+  sixth: '16.66667%',
+  eighth: '12.5%',
+  'fourth': '8.33333%',
   '3xs': '14rem',
   '2xs': '16rem',
   xs: '20rem',
@@ -63,7 +70,7 @@ export const transitions = {
 
 export const color = {
   athens_gray: {
-    base: { value: '#f2f3f7' },
+    base: { value: '#F7F8FC' },
     light: { value: '#8C8C97' },
   },
 
