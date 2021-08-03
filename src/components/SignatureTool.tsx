@@ -10,8 +10,6 @@ import {
 import "../styles/Signature.css";
 import { Text, PrimaryButton, Input } from "@fairfx/geometry-web";
 import { Signature } from "../Signature";
-import Instructions from "./InstructionsModal";
-
 import AppContext from "./AppContext";
 
 export interface SignatureData {
@@ -20,14 +18,10 @@ export interface SignatureData {
   landline: string;
   mobile: string;
   linkedin: string;
-  // equals: boolean;
-  // spectrum: boolean;
   logo: string;
 }
 
 interface State extends SignatureData {
-  // equals: boolean;
-  // spectrum: boolean;
   copied: boolean;
   logo: string;
 }
@@ -38,21 +32,15 @@ const initialState: State = {
   landline: "",
   mobile: "",
   linkedin: "",
-  // equals: false,
-  // spectrum: false,
   copied: false,
   logo: ""
 };
 
-
-
-
-
-const SignatureTool = (props) => {
+const SignatureTool = () => {
   const [state, setState] = useState<State>(initialState);
   const [showEmailSignature, setShowEmailSignature] = useState(false);
   const showSignature = () => setShowEmailSignature(true);
-
+  const { logo } = useContext(AppContext);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState((prevState) => ({
       ...prevState,
@@ -79,12 +67,7 @@ const SignatureTool = (props) => {
       }));
     } catch (err) {}
   };
-
-
-  const { logo } = useContext(AppContext);
   
-
-
   const signatureData = () => {
     return (
       <>
@@ -94,8 +77,6 @@ const SignatureTool = (props) => {
           landline={state.landline}
           mobile={state.mobile}
           linkedin={state.linkedin}
-          // equals={state.equals}
-          // spectrum={state.spectrum}
           logo={logo}
         />
       </>
@@ -116,7 +97,6 @@ const SignatureTool = (props) => {
             {state.copied ? "Copied" : "Copy Signature"}
           </PrimaryButton>
         </ButtonWrapper>
-        <Instructions />
       </Container>
     </div>
   );
@@ -127,13 +107,11 @@ const SignatureTool = (props) => {
     <>
       <Container>
         <Text as="h3">Create your email signature</Text>
-
         <Text fontSize="large" fontWeight="bold">
           Enter your details:
         </Text>
-
         <Component signature={false}>
-          <form noValidate autoComplete="off">
+          <form>
             <Row>
               <Column>
                 <InputField>

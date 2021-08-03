@@ -23,29 +23,34 @@ import instructions from "./Instructions.json";
 
 import AppContext from "./AppContext";
 
-const Navigation = (props) => {
+const Navigation = () => {
   const [equals, setEquals] = useState(true);
   const [spectrum, setSpectrum] = useState(false);
   const [logo, setLogo] = useState(false);
   const [outlookWeb, openOutlookWeb] = useState(false);
   const [outlookDesktop, openOutlookDesktop] = useState(false);
   const [appleMail, openAppleMail] = useState(false);
-
   // @ts-ignore
   const { brand } = useContext(AppContext);
 
   function equalsSelect() {
-    setLogo(brand);
-    setEquals(true);
-    setSpectrum(false);
+    if (equals) {
+      setEquals(equals);
+    } else {
+      setLogo(brand);
+      setSpectrum(false);
+      setEquals(true);
+    }
   }
-
   function spectrumSelect() {
-    setLogo(brand);
-    setSpectrum(!spectrum);
-    setEquals(false)
+    if (spectrum) {
+      setSpectrum(spectrum);
+    } else {
+      setLogo(brand);
+      setSpectrum(!spectrum);
+      setEquals(false);
+    }
   }
-
   function showOutlook() {
     openOutlookWeb(!outlookWeb);
   }
@@ -59,31 +64,18 @@ const Navigation = (props) => {
   const peoplesHub =
     window.location.href.includes("people.equals.io") ||
     window.location.href.includes("3000");
-  const signatureTool =
-    window.location.href.includes("signatures.fairfx.io") ||
-    window.location.href.includes("7777") ||
-    window.location.href.includes("github");
   const isMobile =
     window.innerWidth < 800 ||
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
     );
+  const signatureTool =
+    window.location.href.includes("signatures.fairfx.io") ||
+    window.location.href.includes("7777") ||
+    window.location.href.includes("github");
 
   if (isMobile || peoplesHub) {
     return <></>;
-  }
-
-  if (peoplesHub) {
-    return (
-      <Background>
-        <Wrapper>
-          <Logo src={EqualsLogoDark} />
-          <SlackInfo href="https://slack.com/app_redirect?channel=email-signatures">
-            Need help? Visit <strong>#email-signatures</strong> in slack
-          </SlackInfo>
-        </Wrapper>
-      </Background>
-    );
   }
 
   if (signatureTool) {

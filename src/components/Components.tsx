@@ -228,12 +228,6 @@ export const EmailClient = styled.div`
   }
 `;
 
-export const InstructionsModal = styled.div`
-  @media only screen and (max-width: ${spaces[800]}) {
-    display: none;
-  }
-`;
-
 export const CloseModal = styled.button`
   position: absolute;
   top: 20px;

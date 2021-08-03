@@ -10,20 +10,17 @@ function App() {
   const appContext = useContext(AppContext);
   const [context, setContext] = useState(appContext);
   const [isSpectrum, setSpectrum] = useState(false);
-
   const brand = () => {
-    setContext((prevContext) => ({
+    setContext({
       ...context,
       logo: !isSpectrum ? SpectrumLogo : EqualsLogo,
-    }));
+    });
     setSpectrum(!isSpectrum);
   };
-
   const state = {
     ...context,
     brand: brand,
   };
-
   return (
     <AppContext.Provider value={state}>
       <ThemeProvider theme={equalsTheme}>
@@ -33,6 +30,5 @@ function App() {
     </AppContext.Provider>
   );
 }
-
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
