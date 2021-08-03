@@ -12,20 +12,24 @@ import { Text, PrimaryButton, Input } from "@fairfx/geometry-web";
 import { Signature } from "../Signature";
 import Instructions from "./InstructionsModal";
 
+import AppContext from "./AppContext";
+
 export interface SignatureData {
   name: string;
   jobrole: string;
   landline: string;
   mobile: string;
   linkedin: string;
-  equals: boolean;
-  spectrum: boolean;
+  // equals: boolean;
+  // spectrum: boolean;
+  logo: string;
 }
 
 interface State extends SignatureData {
-  equals: boolean;
-  spectrum: boolean;
+  // equals: boolean;
+  // spectrum: boolean;
   copied: boolean;
+  logo: string;
 }
 
 const initialState: State = {
@@ -34,12 +38,17 @@ const initialState: State = {
   landline: "",
   mobile: "",
   linkedin: "",
-  equals: false,
-  spectrum: false,
+  // equals: false,
+  // spectrum: false,
   copied: false,
+  logo: ""
 };
 
-const SignatureTool = () => {
+
+
+
+
+const SignatureTool = (props) => {
   const [state, setState] = useState<State>(initialState);
   const [showEmailSignature, setShowEmailSignature] = useState(false);
   const showSignature = () => setShowEmailSignature(true);
@@ -71,6 +80,11 @@ const SignatureTool = () => {
     } catch (err) {}
   };
 
+
+  const { logo } = useContext(AppContext);
+  
+
+
   const signatureData = () => {
     return (
       <>
@@ -80,8 +94,9 @@ const SignatureTool = () => {
           landline={state.landline}
           mobile={state.mobile}
           linkedin={state.linkedin}
-          equals={state.equals}
-          spectrum={state.spectrum}
+          // equals={state.equals}
+          // spectrum={state.spectrum}
+          logo={logo}
         />
       </>
     );

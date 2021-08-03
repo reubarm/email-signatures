@@ -1,5 +1,5 @@
 import { SignatureData } from "./components/SignatureTool";
-import { SignatureBox, SpectrumLogo, EqualsLogo } from "./components/Components";
+import { SignatureBox } from "./components/Components";
 import parse, { domToReact } from "html-react-parser";
 
 export const Signature = (props: SignatureData) => {
@@ -11,10 +11,7 @@ export const Signature = (props: SignatureData) => {
         return (
           <img
             src={
-              props.spectrum
-                ? SpectrumLogo
-                : EqualsLogo
-            }
+              props.logo}
             alt="Equals Logo"
             width="115"
             style={{

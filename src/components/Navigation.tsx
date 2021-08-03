@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { NavigationItem } from "@fairfx/geometry-web";
 import { SideBarNavigation } from "@fairfx/geometry-web";
@@ -21,21 +21,31 @@ import { Row, CloseModal, modalPopup } from "./Components";
 import { Text } from "@fairfx/geometry-web";
 import instructions from "./Instructions.json";
 
-const Navigation = () => {
+import AppContext from "./AppContext";
+
+const Navigation = (props) => {
   const [equals, setEquals] = useState(true);
   const [spectrum, setSpectrum] = useState(false);
+  const [logo, setLogo] = useState(false);
   const [outlookWeb, openOutlookWeb] = useState(false);
   const [outlookDesktop, openOutlookDesktop] = useState(false);
   const [appleMail, openAppleMail] = useState(false);
 
+  // @ts-ignore
+  const { brand } = useContext(AppContext);
+
   function equalsSelect() {
+    setLogo(brand);
     setEquals(true);
     setSpectrum(false);
   }
+
   function spectrumSelect() {
+    setLogo(brand);
     setSpectrum(!spectrum);
-    setEquals(false);
+    setEquals(false)
   }
+
   function showOutlook() {
     openOutlookWeb(!outlookWeb);
   }
@@ -47,7 +57,7 @@ const Navigation = () => {
   }
 
   const peoplesHub =
-    window.location.href.includes("people.equals.io") || 
+    window.location.href.includes("people.equals.io") ||
     window.location.href.includes("3000");
   const signatureTool =
     window.location.href.includes("signatures.fairfx.io") ||
@@ -55,7 +65,9 @@ const Navigation = () => {
     window.location.href.includes("github");
   const isMobile =
     window.innerWidth < 800 ||
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
 
   if (isMobile || peoplesHub) {
     return <></>;
