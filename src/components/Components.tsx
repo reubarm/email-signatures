@@ -94,8 +94,8 @@ export const Component = styled.div<{ signature: boolean }>`
   background: ${colorTokens.athens_gray.base.value};
   border-radius: 10px;
   
-  margin: ${spaces[4]} 0;
-  padding: ${spaces[8]} ${spaces[12]} ${spaces[10]};
+  margin: ${spaces[6]} 0 ${spaces[8]};
+  padding: ${spaces[4]};
   width: ${(signature) => (signature ? "800px" : "inherit")};
 
   @media only screen and (max-width: ${spaces[800]}) {

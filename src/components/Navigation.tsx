@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-
+import { useState, useContext } from "react";
 import { NavigationItem } from "@fairfx/geometry-web";
 import { SideBarNavigation } from "@fairfx/geometry-web";
 import Equals from "../icons/Equals";
@@ -7,20 +6,11 @@ import Spectrum from "../icons/Spectrum";
 import OutlookWeb from "../icons/OutlookDesktop";
 import OutlookDesktop from "../icons/OutlookDesktop";
 import AppleMail from "../icons/AppleMail";
-import {
-  Background,
-  Wrapper,
-  Logo,
-  EqualsLogoDark,
-  SlackInfo,
-  Spacer,
-} from "./Components";
-
+import { Spacer } from "./Components";
 import Modal from "react-modal";
 import { Row, CloseModal, modalPopup } from "./Components";
 import { Text } from "@fairfx/geometry-web";
 import instructions from "./Instructions.json";
-
 import AppContext from "./AppContext";
 
 const Navigation = () => {

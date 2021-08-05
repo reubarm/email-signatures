@@ -1,6 +1,17 @@
 import { SignatureData } from "./components/SignatureTool";
 import { SignatureBox } from "./components/Components";
-import parse, { domToReact } from "html-react-parser";
+import parse from "html-react-parser";
+
+
+
+
+const darkMode = "signature-tool";
+
+
+
+
+
+
 
 export const Signature = (props: SignatureData) => {
   function signatureData() {
@@ -14,12 +25,12 @@ export const Signature = (props: SignatureData) => {
               props.logo}
             alt="Equals Logo"
             width="115"
+            className="light-img"
             style={{
               verticalAlign: "top",
               width: "115px",
               padding: "0",
               margin: "0",
-              display: "inline-block",
             }}
           />
         );
@@ -76,7 +87,7 @@ export const Signature = (props: SignatureData) => {
 
   return (
     <>
-      <SignatureBox>
+      <SignatureBox className={darkMode}>
         <div className="signature">{signatureData()}</div>
       </SignatureBox>
     </>

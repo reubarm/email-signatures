@@ -42,7 +42,6 @@ const convertSize = (key: SupportIconSizes): string => {
     base: `${sizes[7]}px`,
     small: `${sizes[6]}px`,
     large: `${sizes[8]}px`,
-    // TODO - move those as tokens if they are not icon specific ?
     xLarge: '40px',
     header: '18px',
     fluid: '100%',
@@ -54,8 +53,6 @@ const convertSize = (key: SupportIconSizes): string => {
 const convertColor = (key: SupportedIconColors) => {
   const colors = {
     alt: colorTokens.white.base.value,
-    muted: colorTokens.casper.base.value,
-    primary: colorTokens.purple.base.value,
     brand: colorTokens.mango.base.value,
   };
 

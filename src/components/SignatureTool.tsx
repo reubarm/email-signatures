@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, useContext } from "react";
 import {
   Row,
   Column,
@@ -7,7 +7,7 @@ import {
   InputField,
   ButtonWrapper,
 } from "./Components";
-import "../styles/Signature.css";
+import "../styles/Signature.scss";
 import { Text, PrimaryButton, Input } from "@fairfx/geometry-web";
 import { Signature } from "../Signature";
 import AppContext from "./AppContext";
@@ -35,6 +35,16 @@ const initialState: State = {
   copied: false,
   logo: ""
 };
+
+
+
+
+
+
+const darkMode = "signature-tool";
+
+
+
 
 const SignatureTool = () => {
   const [state, setState] = useState<State>(initialState);
@@ -67,7 +77,7 @@ const SignatureTool = () => {
       }));
     } catch (err) {}
   };
-  
+
   const signatureData = () => {
     return (
       <>
@@ -87,14 +97,14 @@ const SignatureTool = () => {
     <div>
       <Container>
         <Text as="h4">Your email signature:</Text>
-        <Component signature={true}>
-          <Row>
+        <Component signature={true} className={darkMode}>
+          <Row className={darkMode}>
             <Column>{signatureData()}</Column>
           </Row>
         </Component>
         <ButtonWrapper>
           <PrimaryButton onClick={copySignature}>
-            {state.copied ? "Copied" : "Copy Signature"}
+          <span className="button">{state.copied ? "Copied" : "Copy Signature"}</span>
           </PrimaryButton>
         </ButtonWrapper>
       </Container>
@@ -105,15 +115,15 @@ const SignatureTool = () => {
     <EmailSignature />
   ) : (
     <>
-      <Container>
+        <Container>
         <Text as="h3">Create your email signature</Text>
         <Text fontSize="large" fontWeight="bold">
           Enter your details:
         </Text>
-        <Component signature={false}>
+          <Component signature={false} className={darkMode}>
           <form>
-            <Row>
-              <Column>
+            <Row className={darkMode}>
+                <Column >
                 <InputField>
                   <Input
                     placeholder="Full Name"
@@ -123,7 +133,7 @@ const SignatureTool = () => {
                     name={"name"}
                     onChange={handleChange}
                     autoFocus={false}
-                    color="secondary"
+                    color="primary"
                   />
                 </InputField>
                 <InputField>
@@ -179,7 +189,7 @@ const SignatureTool = () => {
           </form>
         </Component>
         <ButtonWrapper>
-          <PrimaryButton onClick={showSignature}>View Signature</PrimaryButton>
+            <PrimaryButton onClick={showSignature}><span className="button">View Signature</span></PrimaryButton>
         </ButtonWrapper>
       </Container>
     </>
