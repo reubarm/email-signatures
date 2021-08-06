@@ -1,8 +1,14 @@
-import { EqualsLogo } from "./Components";
+import { EqualsLogo, EqualsLogoDark } from "./Components";
+
+let logo = EqualsLogo;
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+if (prefersDarkScheme.matches) {
+  logo = EqualsLogoDark;
+}
 
 const defaultContext = {
-  logo: EqualsLogo,
-  setLogo: () => { },
+  logo: logo,
+  setLogo: () => {},
 };
 
 export default defaultContext;

@@ -36,16 +36,6 @@ const initialState: State = {
   logo: ""
 };
 
-
-
-
-
-
-const darkMode = "signature-tool";
-
-
-
-
 const SignatureTool = () => {
   const [state, setState] = useState<State>(initialState);
   const [showEmailSignature, setShowEmailSignature] = useState(false);
@@ -57,7 +47,8 @@ const SignatureTool = () => {
       [event.target.name]: event.target.value,
     }));
   };
-
+  const darkMode = "signature-tool";
+  const darkSignature = "signature-output";
   const copySignature = () => {
     let copyText = document.querySelector(".signature");
     const range = document.createRange();
@@ -97,14 +88,14 @@ const SignatureTool = () => {
     <div>
       <Container>
         <Text as="h4">Your email signature:</Text>
-        <Component signature={true} className={darkMode}>
-          <Row className={darkMode}>
-            <Column>{signatureData()}</Column>
-          </Row>
+        <Component signature={true} className={darkSignature}>
+
+          {signatureData()}
+
         </Component>
         <ButtonWrapper>
           <PrimaryButton onClick={copySignature}>
-          <span className="button">{state.copied ? "Copied" : "Copy Signature"}</span>
+          <span className="button">{state.copied ? "Copied" : "Copy signature"}</span>
           </PrimaryButton>
         </ButtonWrapper>
       </Container>
@@ -189,7 +180,7 @@ const SignatureTool = () => {
           </form>
         </Component>
         <ButtonWrapper>
-            <PrimaryButton onClick={showSignature}><span className="button">View Signature</span></PrimaryButton>
+            <PrimaryButton onClick={showSignature}><span className="button">View signature</span></PrimaryButton>
         </ButtonWrapper>
       </Container>
     </>

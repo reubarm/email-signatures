@@ -3,54 +3,54 @@ body {
   font-family: "Equals", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white;
+  background-color: none;
 }
 
-
-
-
-
-
+.dark {
+  background-color: inherit !important;
+}
 
 /* Dark Mode */
-
 .dark-theme {
-  background: #262835 !important;
 
   h3,
+  h4,
   p {
-    color: white !important;
+    color: #fff !important;
   }
   [prefix],
   ::placeholder,
   ::-webkit-input-placeholder {
-    background: #363842 !important;
-    color: white !important;
+    background: inherit !important;
+    color: #fff !important;
   }
   input {
-    color: white !important;
+    color: #fff !important;
   }
-
   .signature-tool {
-    background: #363842 !important;
+    background: #262835 !important;
   }
-
+  .signature-output {
+    background: none !important;
+    margin: 2rem 0;
+    .signature-output {
+    border: 30px solid #262835;
+    margin: 2rem 0;
+  }
+  }
   .light-img {
     display: none;
     display: none !important;
   }
+  table {
+    color: #fff!important;
+  }
 }
-
 .button {
   color: #262835 !important;
 }
 
-
-
-
-
 /* Email Signature */
-
 .wrapper {
   max-width: 600px !important;
 }
@@ -128,13 +128,13 @@ a[href^="tel:"] {
   span,
   a,
   a[href^="tel:"] {
-    color: #f7f8fc !important;
+    color: #fff!important;
   }
   .equals-site {
     color: #ffb900 !important;
   }
   .divider {
-    border-top: 1px solid #f7f8fc !important;
+    border-top: 1px solid #fff !important;
   }
   [data-ogsc] .dark-img {
     display: inline-block;
@@ -151,7 +151,7 @@ a[href^="tel:"] {
   [data-ogsc] span,
   [data-ogsc] a,
   [data-ogsc] a[href^="tel:"] {
-    color: #f7f8fc !important;
+    color: #fff!important;
   }
   [data-ogsc] .equals-site {
     color: #ffb900 !important;

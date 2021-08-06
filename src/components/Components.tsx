@@ -5,10 +5,13 @@ export const EqualsLogo =
   "https://cdn.equals.co/images/group-email-signature/optimised/equals-light.png";
 
 export const SpectrumLogo =
-  "https://cdn.fairfx.com/images/email-signatures/spec-logo.png";
+  "https://cdn.fairfx.com/images/group-email-signature/spectrum-light.png";
 
 export const EqualsLogoDark =
   "https://cdn.fairfx.com/images/group-email-signature/equals-dark.png";
+
+export const SpectrumLogoDark =
+  "https://cdn.fairfx.com/images/group-email-signature/spectrum-light.png";
 
 export const OutlookWeb =
   "https://cdn.fairfx.com/images/email-signatures/mso-web.png";
@@ -142,7 +145,7 @@ export const InputField = styled.div`
 
 export const SignatureBox = styled.div`
   background: ${colorTokens.white.base.value};
-  border: 2px solid #e1e1ea;
+  border: 10px solid #e1e1ea;
   padding: ${spaces[12]} ${spaces[20]};
   margin: ${spaces[4]} ${spaces[8]};
   border-radius: 10px;
