@@ -11,7 +11,7 @@ export const EqualsLogoDark =
   "https://cdn.fairfx.com/images/group-email-signature/equals-dark.png";
 
 export const SpectrumLogoDark =
-  "https://cdn.fairfx.com/images/group-email-signature/spectrum-light.png";
+  "https://cdn.fairfx.com/images/group-email-signature/spectrum-dark.png";
 
 export const OutlookWeb =
   "https://cdn.fairfx.com/images/email-signatures/mso-web.png";
